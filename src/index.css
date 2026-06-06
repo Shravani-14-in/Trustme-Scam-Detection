@@ -1,0 +1,108 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-base: #09090f;
+  --bg-surface: #0f0f1a;
+  --bg-card: #13131f;
+  --bg-elevated: #1a1a2e;
+  --border: rgba(255, 255, 255, 0.06);
+  --border-glow: rgba(99, 179, 237, 0.2);
+
+  --text-primary: #f0f0f8;
+  --text-secondary: #8888aa;
+  --text-muted: #555575;
+
+  --safe: #34d399;
+  --safe-bg: rgba(52, 211, 153, 0.08);
+  --safe-border: rgba(52, 211, 153, 0.25);
+
+  --danger: #f87171;
+  --danger-bg: rgba(248, 113, 113, 0.08);
+  --danger-border: rgba(248, 113, 113, 0.25);
+
+  --warn: #fbbf24;
+  --warn-bg: rgba(251, 191, 36, 0.08);
+  --warn-border: rgba(251, 191, 36, 0.25);
+
+  --accent: #818cf8;
+  --accent-dim: rgba(129, 140, 248, 0.15);
+
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-elevated);
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--accent-dim);
+  color: var(--text-primary);
+}
+
+/* Noise overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(248, 113, 113, 0.4); }
+  70%  { transform: scale(1);    box-shadow: 0 0 0 10px rgba(248, 113, 113, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(248, 113, 113, 0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes scan-line {
+  0%   { top: 0%; }
+  100% { top: 100%; }
+}
