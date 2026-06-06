@@ -1,6 +1,12 @@
 
 const GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions";
-export async function analyzeMessage(message, apiKey) {
+const API_KEY = import.meta.env.VITE_GROQ_API_KEY;
+
+export async function analyzeMessage(message) {
+  if (!API_KEY) {
+    throw new Error("VITE_GROQ_API_KEY is not set in your .env file.");
+  }
+
   const systemPrompt = `You are TrustMe, a cybersecurity expert specializing in detecting scams, fraud, and deceptive messages in the Indian digital context. You analyze messages with deep expertise in:
 - Fake job/internship offers
 - Fake loan offers and financial fraud
@@ -35,7 +41,7 @@ If the message appears legitimate, red_flags can be an empty array. Be precise, 
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`,
+      Authorization: `Bearer ${API_KEY}`,
     },
     body: JSON.stringify({
       model: "llama-3.1-8b-instant",
@@ -55,8 +61,6 @@ If the message appears legitimate, red_flags can be an empty array. Be precise, 
 
   const data = await response.json();
   const raw = data.choices?.[0]?.message?.content || "";
-
-  // Strip any accidental markdown fences
   const clean = raw.replace(/```json|```/gi, "").trim();
 
   try {
