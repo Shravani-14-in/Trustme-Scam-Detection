@@ -1,4 +1,4 @@
-# TrustMe - AI Scam Detector
+# TrustMe - Scam Detector
 
 **TrustMe** is an AI-powered scam detection web app built for the Indian digital context. Paste any suspicious message and get an instant verdict with red flags, confidence score, highlighted phrases, and actionable advice.
 
