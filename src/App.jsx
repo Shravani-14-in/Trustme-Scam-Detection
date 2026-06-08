@@ -377,17 +377,6 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer style={{
-        textAlign: "center", padding: "18px",
-        borderTop: "1px solid var(--border)",
-        background: "var(--bg-surface)",
-        fontSize: 12, fontFamily: "var(--font-mono)",
-        color: "var(--text-muted)",
-        display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
-      }}>
-        <Shield size={11} />
-        TrustMe · Powered by Groq + Llama 3.1
-      </footer>
     </div>
   );
 }
