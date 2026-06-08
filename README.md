@@ -102,7 +102,7 @@ npm run preview
 
 ```
 trustme/
-├── .env                        # Your API key (never commit this)
+├── .env                        #  API key
 ├── .gitignore
 ├── index.html
 ├── package.json
@@ -112,7 +112,7 @@ trustme/
     ├── App.jsx                 # Main layout, scan UI, routing between tabs
     ├── groq.js                 # Groq API call + prompt logic
     ├── useHistory.js           # localStorage history hook
-    ├── index.css               # Global styles and design tokens
+    ├── index.css               #  design 
     └── components/
         ├── VerdictCard.jsx     # Result card with confidence meter and flags
         └── HistoryPanel.jsx    # Past scans tab
@@ -129,6 +129,15 @@ trustme/
 5. Each scan is saved to `localStorage` for quick re-access from the History tab
 
 ---
+
+---
+## Screenshots
+
+<p align="center">
+  <img src="src/assets/Screenshot 2026-06-07 175441.png" width="500"><br>
+  <img src="src/assets/Screenshot 2026-06-07 175617.png" width="500"><br>
+  <img src="src/assets/Screenshot 2026-06-07 175631.png" width="500">
+</p>
 
 
 
